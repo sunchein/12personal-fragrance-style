@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12香氛人格完整對應表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 自定義卡片陰影方便閱讀 */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* 讓經文的換行能正確顯示 */
+        .scripture-text {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-relaxed">
+    <div class="container mx-auto py-8 px-4">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-extrabold text-gray-800 mb-2">十二香氛人格完整對應表</h1>
+            <p class="text-gray-600">根據您提供的「20250927的12香氛人格完整對應表」資料彙整而成。</p>
+        </header>
+        <div id="personalityTable" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <script>
+        // 定義十二型人格資料，完全來自 20250927的12香氛人格完整對應表.xlsx
+        const personalityData = [
+            {
+                code: "01",
+                name: "領導者 (Leader)",
+                traits: "果斷、權威、目標導向",
+                scentType: "木質辛香調",
+                essentialOilFormula: "黑胡椒+肉桂皮+雪松+佛手柑+檸檬",
+                essentialOilName: "赤炎初心",
+                perfumeFormula: "主體: 工坊手作\n輔助: 覓靜香頌\n點綴: 紅心清香",
+                perfumeName: "權杖宣言",
+                colorName: "赤炎色",
+                colorHex: "#FF0000",
+                liuhe: "陽火",
+                bodySystem: "循環系統",
+                emotion: "充滿自信、果敢與激勵人心的能量。當他們感到快樂或成功時，會展現出強大的氣場和慷慨的風範，樂於分享榮耀，其喜悅是具有感染力的行動號召。",
+                sound: "陽宮音",
+                scentMeaning: "是權杖敲響的宣言，\n是大地深處不容置疑的力量。",
+                healthTips: "需要注意心的疏泄功能,壓力大或作息不规律(如熬夜)可能影響決斷力,易有偏頭痛、失眠問題,建議在子時(23:00-01:00)熟睡以養膽氣。",
+                healthBenefit: "心血管系統,強化循環,提升決斷力:需注意膽經,避免熬夜導致偏頭痛、失眠",
+                tribe: "猶大 (Judah) - 君王支派",
+                blessingClue: "王杖不離猶大、帶領群體",
+                scripture: "創世記 49:10\n\n“圭必不離猶大，杖必不離他兩腳之間，直等細羅（就是賜平安者）來到，萬民都必歸順。”\n\n說明: \"\"圭\"\"和\"\"杖\"\"是古代君王權力的象徵，這節經文預言了君王將從猶大支派而出，最著名的後裔便是大衛王和耶穌基督。"
+            },
+            {
+                code: "02",
+                name: "合作者 (Collaborator)",
+                traits: "親和、包容、溫暖",
+                scentType: "白花麝香調",
+                essentialOilFormula: "甜橙+西班牙天竺葵+薰衣草+安息香",
+                essentialOilName: "晨曦之擁",
+                perfumeFormula: "主體: 自由\n輔助: 日光茉蘭\n點綴: 心星幾許",
+                perfumeName: "溫柔的擁抱",
+                colorName: "橙曦色",
+                colorHex: "#FF6200",
+                liuhe: "陰木",
+                bodySystem: "神經系統",
+                emotion: "正面情緒表現：散發出平靜、溫暖與滿足的氛圍。在和諧的關係中，他們感到最大的快樂，會透過溫柔的言語和支持性的行為來表達喜悅，讓人如沐春風。",
+                sound: "陰羽音",
+                scentMeaning: "是柔軟肌膚上的暖意，\n是純白花瓣無聲的包容。",
+                healthTips: "情绪敏感,易受外界影響。需注意心血管系統的保護,避免過度為他人犧牲導致心力耗損,易有胸悶、心悸等問題。保持情緒穩定對心包經的健康很重要。",
+                healthBenefit: "神經系統,舒緩焦慮,提升情感連結;需注意心血管與心包經健康",
+                tribe: "利未 (Levi) - 祭司支派",
+                blessingClue: "如水不穩→求存活而不減少",
+                scripture: "申命記 33:10\n\n“他們要將你的典章教訓雅各，將你的律法教訓以色列。他們要把香焚在你面前，把全牲的燔祭獻在你的壇上。”\n\n說明: 利未支派被上帝揀選，專職負責會幕和聖殿中的祭祀與教導律法的工作，成為服事上帝的祭司。"
+            },
+            {
+                code: "03",
+                name: "創意者 (Creator)",
+                traits: "靈感、自由、藝術性",
+                scentType: "柑橘花香調",
+                essentialOilFormula: "檸檬+佛手柑+橙花+快樂鼠尾草",
+                essentialOilName: "金光樂章",
+                perfumeFormula: "主體: 柚香氣息\n輔助: 鳳凰山丘\n點綴: 碧綠青竹",
+                perfumeName: "靈感之泉",
+                colorName: "金光色",
+                colorHex: "#FFB005",
+                liuhe: "陽木",
+                bodySystem: "消化系統",
+                emotion: "熱情洋溢、樂觀開朗、充滿好奇心。他們的快樂是外放且富有感染力的，會透過幽默、生動的語言和藝術創作來分享內心的喜悅。",
+                sound: "陽角音",
+                scentMeaning: "是陽光下迸裂的柚皮，\n是盛開在海風中的喜悅。",
+                healthTips: "情绪起伏可能較大,需注意心的功能,如思維、情緒管理。心火易亢,可能影響睡眠,或有心煩,口舌生瘡等問題。午休片刻有助養心。",
+                healthBenefit: "腦神經與消化,提升專注與靈感:需注意心火過旺影響睡眠",
+                tribe: "西布倫 (Zebulun) - 豐盛支派",
+                blessingClue: "居海口、對外拓展與商旅",
+                scripture: "創世記 49:13\n\n“西布倫必住在海口，必成為停船的海口；他的境界必延到西頓。”\n\n說明: 雅各的祝福預示西布倫將居住在沿海的貿易要道，這地理位置為他們帶來了商業上的繁榮與豐盛。"
+            },
+            {
+                code: "04",
+                name: "實踐者 (Implementer)",
+                traits: "務實、穩定、耐力",
+                scentType: "木質芳香馥奇-柑苔調",
+                essentialOilFormula: "檜木+黑雲杉+薰衣草+絲柏",
+                essentialOilName: "翠岩磐石",
+                perfumeFormula: "主體: 巴黎香榭\n輔助: 甜蜜夢鄉\n點綴: 優雅金盞",
+                perfumeName: "大地之母",
+                colorName: "翠岩色",
+                colorHex: "#489103",
+                liuhe: "陽土",
+                bodySystem: "肌肉系統",
+                emotion: "沉穩、可靠並富有成就感。當計畫順利完成或環境穩定有序時，他們會感到內心踏實和滿足。他們的情緒穩定，喜悅是內斂而持久的。",
+                sound: "陽徵音",
+                scentMeaning: "是雨後森林的沉穩氣息，\n是扎根於堅實土地的秩序。",
+                healthTips: "可能過於保守固執,對應到胃的功能可能偏向呆滯。需注意消化系統功能,避免思慮過度影響胃氣,易有胃脹、消化不良等問題,規律進食,尤其是早餐很重要。",
+                healthBenefit: "肌肉骨骼,提升耐力與持續力;需注意消化系統避免胃脹與消化不良。",
+                tribe: "以薩迦 (Issachar) - 建造支派",
+                blessingClue: "強壯如驢、識時務、肯負重",
+                scripture: "創世記 49:14-15\n\n“以薩迦是個強壯的驢，臥在兩營之間。他以安靜為佳，以肥地為美，便低肩背重，成為服苦的僕人。”\n\n說明: 這段經文描述以薩迦如同強壯的驢，有負重和建造的能力，願意為了美好的土地而努力工作。"
+            },
+            {
+                code: "05",
+                name: "冒險者 (Adventurer)",
+                traits: "好奇、勇敢、自由奔放",
+                scentType: "清新木質調",
+                essentialOilFormula: "薄荷+杜松+冷杉+冬青",
+                essentialOilName: "蒼穹之風",
+                perfumeFormula: "主體: 芬多精靈\n輔助: 青檸木松\n點綴: 柚香氣息",
+                perfumeName: "森林勇氣",
+                colorName: "蒼穹色",
+                colorHex: "#0559AD",
+                liuhe: "陽金",
+                bodySystem: "呼吸系統",
+                emotion: "興奮、灑脫、充滿活力。在體驗新事物和感受自由時，他們會展現出極大的熱情和魅力。他們的快樂是即時的、享樂主義的，追求感官上的刺激。",
+                sound: "陽商音",
+                scentMeaning: "是穿行於針葉林的疾風，\n是破開浪濤時的自由勇氣。",
+                healthTips: "好奇心強但可能缺乏耐心。需注意身體的水液代謝與排毒功能。膀胱經也關乎記憶力與精力,過度消耗可能導致腰背酸痛、精神不濟。此時段多喝水有益。",
+                healthBenefit: "呼吸系統,清新暢通,迎來冒險能量;需注意膀胱經與水液代謝",
+                tribe: "但 (Dan) - 探索支派",
+                blessingClue: "被追擊仍反勝、戰士性格",
+                scripture: "創世記 49:16-17\n\n“但必判斷他的民，作以色列支派之一。但必作道上的蛇，路中的虺，咬傷馬蹄，使騎馬的墜落於後。”\n\n說明: \"\"判斷他的民\"\"指出了治理和審判的權柄。而\"\"道上的蛇\"\"則象徵其戰術上的智慧與出其不意的探索能力。"
+            },
+            {
+                code: "06",
+                name: "守護者 (Guardian)",
+                traits: "忠誠、保護、安定",
+                scentType: "草本花香木質調",
+                essentialOilFormula: "乳香+絲柏+薰衣草+安息香",
+                essentialOilName: "靛藍搖籃曲",
+                perfumeFormula: "主體: 青新竺葵\n輔-助: 甜蜜夢鄉\n點綴: 安息木道",
+                perfumeName: "忠誠之盾",
+                colorName: "靛藍色",
+                colorHex: "#1E0369",
+                liuhe: "陰火",
+                bodySystem: "免疫系統",
+                emotion: "慈愛、有安全感、感到被需要。當所愛的人快樂且安全時，他們會感到最大的幸福。他們的喜悅是溫和的、奉獻的，透過照顧和付出來表達。",
+                sound: "陰宮音",
+                scentMeaning: "是洋甘菊田的寧靜守望，\n是溫暖木屋中永恆的忠誠。",
+                healthTips: "可能過度擔憂、犧牲自我。脾主思,思慮過度易傷脾。需注意消化吸收及氣血生成,易有腹脹、食慾不振、倦怠乏力,肌肉鬆軟等問題。適度運動有助脾氣運行。",
+                healthBenefit: "免疫系統,鎮靜安定,守護身心;需注意脾胃與氣血生成,避免過度思慮",
+                tribe: "呂便 (Reuben) - 家庭支派",
+                blessingClue: "與利未同被分散、需轉化烈性",
+                scripture: "創世記 49:3\n\n“呂便哪，你是我的長子，是我力量強壯的時候生的，本當大有尊榮，權力超眾。”\n\n說明: 雖然呂便因犯罪而失去了長子的名分和祝福，但他的身份始終是雅各的長子，代表了家庭中最初的力量和位分。"
+            },
+            {
+                code: "07",
+                name: "探索者 (Explorer)",
+                traits: "神秘、追尋、靈性氣質",
+                scentType: "樹脂木質調",
+                essentialOilFormula: "乳香+杜松+快樂鼠尾草+沈香籽",
+                essentialOilName: "紫晶聖壇",
+                perfumeFormula: "主體: 書香氣息\n輔助: 安息木道\n點綴: 旅人眼界",
+                perfumeName: "靜謐之心",
+                colorName: "紫晶色",
+                colorHex: "#650280",
+                liuhe: "陰靈",
+                bodySystem: "內分泌系統",
+                emotion: "寧靜、專注、充滿洞見。在獨處、學習和思考中獲得領悟時，他們會感到深刻的、智識上的喜悅。他們的情緒是內省的，快樂源於與真理的連結。",
+                sound: "陰角音",
+                scentMeaning: "是古老聖殿中的升起之煙，\n是靜默冥想時的內心迴響。",
+                healthTips: "可能顯得孤僻,不易親近。需注意全身氣機的調節與內分泌平衡。三焦不暢可能影響情緒,睡眠及水液代謝,易感疲勞,保持心境平和,(21:00-23:00準備入睡是此時養生關鍵。",
+                healthBenefit: "靈性與內分泌,助於冥想與內觀:需注意三焦氣機與睡眠品質",
+                tribe: "拿弗他利 (Naphtali) - 自由支派",
+                blessingClue: "如狼勇猛、蒙愛而安居",
+                scripture: "創世記 49:21\n\n“拿弗他利是被釋放的母鹿；他出嘉美的言語。”\n\n說明: \"\"被釋放的母鹿\"\"象徵著不受拘束的自由、敏捷和優雅。嘉美的言語則代表了美好的溝通與表達能力。"
+            },
+            {
+                code: "08",
+                name: "成就者 (Achiever)",
+                traits: "目標、驅動力、榮耀",
+                scentType: "木質草本辛香",
+                essentialOilFormula: "薑+黑胡椒+肉桂+癒創木",
+                essentialOilName: "鎏金權杖",
+                perfumeFormula: "主體: 工坊手作\n輔助: 安息木道\n點綴: 翡翠玫瑰",
+                perfumeName: "榮耀桂冠",
+                colorName: "鎏金色",
+                colorHex: "#DE8909",
+                liuhe: "陽火",
+                bodySystem: "消化+肝膽",
+                emotion: "自信、目標明確、充滿掌控感。在事業成功、達成目標時，他們會感到極大的滿足和驕傲。他們的快樂是與成就感和社會地位緊密相連的。",
+                sound: "陽羽音",
+                scentMeaning: "是勝利桂冠上的獨特辛香，\n是鐫刻在皮革上的榮耀勳章。",
+                healthTips: "可能控制慾強、易累積壓力。肝氣鬱結或過旺是常見問題,需注意情緒調節與壓力釋放,易有易怒、焦慮、脅肋胀痛,眼乾澀等問題。丑時(01:00-03:00)熟睡是養肝血、排毒的關鍵。",
+                healthBenefit: "消化與循環,增強動力與行動力;需注意肝氣疏泄與眼睛疲勞",
+                tribe: "亞設 (Asher) - 尊榮支派",
+                blessingClue: "為民伸冤、機警如蛇、小獅子",
+                scripture: "創世記 49:20\n\n“亞設的糧食肥美，他必出君王的美味。”\n\n說明: 預言亞設的土地將物產豐饒，能出產供應君王的佳餚，代表著富足、尊榮與祝福。"
+            },
+            {
+                code: "09",
+                name: "理想者 (Idealist)",
+                traits: "浪漫、純潔、理想性",
+                scentType: "花香柑苔調",
+                essentialOilFormula: "西班牙天竺葵+薰衣草+佛手柑+芳樟",
+                essentialOilName: "月光聖杯",
+                perfumeFormula: "主體: 初香日照\n輔助: 日光茉蘭\n點綴: 春天香格里拉",
+                perfumeName: "豐盛花園",
+                colorName: "月光色",
+                colorHex: "#FAE171",
+                liuhe: "陰木",
+                bodySystem: "呼吸/肺系統",
+                emotion: "充滿希望、富有同情心、信念堅定。當為理想奮鬥並看到積極改變時，他們會感到崇高的、精神層面的快樂。他們的喜悅是為大我而生的。",
+                sound: "陰商音",
+                scentMeaning: "是理想國花園的浪漫吐息，\n是承載著豐盛果實的土地。",
+                healthTips: "可能不切實際,過於感性。肺主悲,易受情緒影響。需注意呼吸系統功能與免疫力,肺氣虛弱可能易感冒,咳嗽、氣短、悲觀,深度睡眠有助肺氣宣發。",
+                healthBenefit: "神經與情緒,帶來浪漫與平衡;需注意肺功能與免疫,避免感冒咳嗽",
+                tribe: "迦得 (Gad) - 戰士支派",
+                blessingClue: "多結果子、被保護祝福滿溢",
+                scripture: "創世記 49:19\n\n“迦得必被敵軍追逼，他卻要追逼他們的腳跟。”\n\n說明: 這節經文生動地描繪了迦得支派的戰士特質：雖然會面臨敵人的攻擊，但他們擁有反擊得勝的勇氣和能力。"
+            },
+            {
+                code: "10",
+                name: "靈感者 (Inspirator)",
+                traits: "靈性、啟發、無限",
+                scentType: "熏香琥珀東方調",
+                essentialOilFormula: "檸檬+迷迭香+快樂鼠尾草+綠花白千層",
+                essentialOilName: "銀河星塵",
+                perfumeFormula: "主體: 紅心清香\n輔助: 幽靜我心\n點綴: 自由",
+                perfumeName: "啟迪之光",
+                colorName: "銀河色",
+                colorHex: "#E3E4E6",
+                liuhe: "陽靈",
+                bodySystem: "泌尿/腎系統",
+                emotion: "超然、富有遠見、充滿靈性。當接收到靈感或與更高意識連結時，他們會感到一種難以言喻的平靜與喜悅。他們的情緒是精微的、超越世俗的。",
+                sound: "陽徵音",
+                scentMeaning: "是溫暖琥珀中的啟迪之光，\n是來自異域的神秘低語。",
+                healthTips: "內在矛盾,容易焦慮緊張。腎精虧虛或腎氣不固是潛在問題,需注意泌尿生殖系統、骨骼、精力及情緒穩定。易有腰痠、耳鳴、記憶力下降、恐懼感。此時段避免過勞。適宜休息或晚餐。",
+                healthBenefit: "腦神經與與呼吸,開啟洞察與靈感;需注意腎精與記憶力,避免過勞",
+                tribe: "約瑟 (Joseph) - 啟示支派",
+                blessingClue: "出肥美之糧、受歡悅、昌盛",
+                scripture: "創世記 49:22\n\n“約瑟是多結果子的樹枝，是泉旁多結果的枝子；他的枝條探出牆外。”\n\n說明: 這象徵著約瑟的後裔（以法蓮和瑪拿西）將極其繁茂、多結果子，領受加倍的祝福與啟示。約瑟本人解夢的能力也體現了啟示的恩賜。"
+            },
+            {
+                code: "11",
+                name: "建築大師 (Architect)",
+                traits: "結構、穩固、務實",
+                scentType: "綠意柑苔調",
+                essentialOilFormula: "廣藿香+紫檀+雪松+芳樟",
+                essentialOilName: "大地基石",
+                perfumeFormula: "主體: 優雅金盞\n輔助: 翡翠玫瑰\n點綴: 巴黎香榭",
+                perfumeName: "蒼翠之柱",
+                colorName: "大地色",
+                colorHex: "#692C00",
+                liuhe: "陰土",
+                bodySystem: "骨骼/皮膚系統",
+                emotion: "極具成就感、富有遠見、感覺強大。當宏偉的藍圖被成功實現時，他們會感到無與倫比的滿足感。他們的快樂是將夢想化為現實的創造性喜悅。",
+                sound: "陰羽音",
+                scentMeaning: "是蒼翠石階上的清晰苔痕，\n是宏偉藍圖中堅實的樑柱。",
+                healthTips: "壓力巨大、責任感重。可能影響傳導功能,需注意腸道健康與排泄功能。易有便秘或腹瀉、皮膚問題(肺與大腸相表裡)。養成定時排便習慣,攝取足夠纖維與水分很重要。",
+                healthBenefit: "骨骼與皮膚,建立結構與保護力:需注意腸道與排泄,避免便秘",
+                tribe: "便雅憫 (Benjamin) - 實現支派",
+                blessingClue: "如野牛之角、萬民之首",
+                scripture: "創世記 49:27\n\n“便雅憫是個撕掠的狼，早晨要吃他所抓的，晚上要分他所奪的。”\n\n說明: \"\"撕掠的狼\"\"形容了便雅憫支派的勇猛善戰和積極進取，能夠主動去獲取和實現目標。"
+            },
+            {
+                code: "12",
+                name: "靈魂導師 (Soul Mentor)",
+                traits: "智慧、啟迪、聖潔",
+                scentType: "花香東方調",
+                essentialOilFormula: "乳香+安息香+沈香籽+文莎草",
+                essentialOilName: "聖愛光冕",
+                perfumeFormula: "主體: 午夜茉莉\n輔助: 都會女郎\n點綴: 覓靜香頌",
+                perfumeName: "聖潔同在",
+                colorName: "聖光色",
+                colorHex: "#FFFACD",
+                liuhe: "陰靈",
+                bodySystem: "生殖+小腸",
+                emotion: "慈悲、平靜、充滿智慧。在深度連結和引導他人走出困境時，他們會感到深刻的、神聖的滿足感。他們的喜悅是無私的，來自於他人的成長與療癒。",
+                sound: "陰徵音",
+                scentMeaning: "是聖潔白花與溫暖香草的聯合，\n是靈魂深處傳來的慈悲聖言。",
+                healthTips: "需在理想與現實中平衡,避免過度犧牲。小腸功能失調影響營養吸收。需注意消化吸收能力,以及清濁分別的功能。可能出現消化不良、腹脹、營養吸收差等問題。午餐吃得營養有助小腸功能。",
+                healthBenefit: "靈性與免疫、深層冥想與靈魂啟發:需注意小腸功能與營養吸收",
+                tribe: "西緬 (Simeon) - 傾聽支派",
+                blessingClue: "祭司職分、教導律法、事奉",
+                scripture: "創世記 29:33\n\n她（利亞）又懷孕生子，就說：「耶和華因為聽見我失寵，所以又賜給我這個兒子。」於是給他起名叫西緬（就是聽見的意思）。\n\n說明: 西緬的名字本身就含有\"\"聽見\"\"的意思。雖然雅各在創世記49章中因西緬的殘暴而咒詛他，使其分散在以色列中，但其名字的根源意義仍與\"\"傾聽\"\"相關。"
+            }
+        ];
+
+        // 根據資料動態生成卡片
+        const container = document.getElementById('personalityTable');
+        personalityData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl p-6 card-shadow flex flex-col';
+            
+            // 使用 .replace(/\n/g, '<br>') 來處理換行符，使其在HTML中正確顯示
+            card.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="w-8 h-8 rounded-full mr-3 flex-shrink-0" style="background-color: ${item.colorHex};"></div>
+                    <h2 class="text-xl font-bold text-gray-800 flex-1">${item.code} ${item.name}</h2>
+                </div>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">特質：</span>${item.traits}</p>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">香氛調：</span>${item.scentType}</p>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">精油香氛名稱：</span>${item.essentialOilName}</p>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">精油香氛配方：</span>${item.essentialOilFormula}</p>
+                <p class="text-sm text-gray-600 mb-2"><span class="font-medium">香水香氛名稱：</span>${item.perfumeName}</p>
+                <p class="text-sm text-gray-600 mb-4 scripture-text"><span class="font-medium">香水配方：</span>\n${item.perfumeFormula}</p>
+                
+                <div class="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-4 border-t border-b border-gray-200 py-4">
+                    <div><span class="font-medium">對應色名：</span>${item.colorName}</div>
+                    <div><span class="font-medium">HEX：</span>${item.colorHex}</div>
+                    <div><span class="font-medium">六合屬性：</span>${item.liuhe}</div>
+                    <div><span class="font-medium">人體系統：</span>${item.bodySystem}</div>
+                    <div class="col-span-2"><span class="font-medium">音屬性：</span>${item.sound}</div>
+                </div>
+
+                <div class="mb-4">
+                    <p class="text-sm text-gray-800 font-medium mb-1">對應情緒：</p>
+                    <p class="text-sm text-gray-600">${item.emotion}</p>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-sm text-gray-800 font-medium mb-1">香氛寓意：</p>
+                    <p class="text-sm text-gray-600 italic scripture-text">"${item.scentMeaning}"</p>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-sm text-gray-800 font-medium mb-1">健康提醒：</p>
+                    <p class="text-sm text-gray-600">${item.healthTips}</p>
+                </div>
+                
+                <p class="text-sm text-gray-600 mb-4"><span class="font-medium">健康屬性：</span>${item.healthBenefit}</p>
+
+                <div class="mt-auto pt-4 border-t border-gray-200">
+                    <p class="text-sm text-gray-600 mb-2"><span class="font-medium">支派：</span>${item.tribe}</p>
+                    <p class="text-sm text-gray-600 mb-2"><span class="font-medium">祝福線索：</span>${item.blessingClue}</p>
+                    <p class="text-sm text-gray-500 scripture-text"><span class="font-medium">經文參照：</span>\n${item.scripture}</p>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
